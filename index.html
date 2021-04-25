@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/cerulean/bootstrap.min.css">-->
+	<link rel="stylesheet" href="main.css">
+	<script src="jquery-3.6.0.min.js"></script>
+	<script>
+	jQuery(document).ready(function() {
+		var id = '0';
+		var dropdown = $(".dropdown").attr("style");
+		var str;
+		$(".dropdown").attr("style", dropdown +"display: none;");
+		$("#submit").attr( "style", "background-color: #C4C4C4;border-color:#C4C4C4;");
+		$("#submit").attr( "disabled", "disabled");
+		$('#obrz').on('click', function() {
+  			$("#submit").removeAttr("disabled");
+  			$("#submit").attr( "style", "background-radius: #0500FF;border-color:#0500FF;");
+
+		});
+		$('#choose').on('click', function() {
+			$(".dropdown").attr( "style", dropdown);	
+		});		
+		$('.dropdown_elem').on('click', function() {
+			$('input#choose').attr("value", $(this).text());
+			$(".dropdown").attr( "style", dropdown+"display: none;");	
+		});
+		console.log(str);
+		$('label').on('click', function() {
+			str = $(this).attr("style");
+			$(this).attr( "style", str+"border: 1px solid #0500FF;");
+		});
+
+
+
+	});
+	</script>
+</head>
+<body>
+
+	<header id="header">
+		<div class="nav">
+			<h1>Utair HR</h1>
+			<ul class="profile_tabs">	
+				<li><img src="ava.jpg" alt="" style="border-radius: 100px;background-color: grey; width: 50px;height: 52px;"></li>
+				<li><a href="#">Выйти</a></li>
+			</ul>
+		</div>
+	</header>
+	<section id="quest">
+		<div class="wrapper">
+			<form action="" method="post">
+				<h1>Создать новую вакансию</h1>
+				<div class="card inactive">
+
+					<input type="text" placeholder="Например инженер">
+					<div class="rect"><h5>Название вакансии</h5></div>
+					<!--ОШИБКА-->
+					<div class="mistake">ОШИБКА</div>
+					
+				</div>
+				<div class="card">
+					<input type="text" id="choose" placeholder="Можно ввести название или выбрать">
+					<div class="rect" ><h5>Выберите стандарт</h5></div>
+				</div>
+				<div class="dropdown" style="background-color: #fff;border-radius: 7px;width: 566px;margin-top: -30px;">
+					<div class="dropdown_elem">Пилот</div><hr noshade>
+					<div class="dropdown_elem">Просто красивый</div><hr noshade>
+					<div class="dropdown_elem">Ну тоже ничего </div>
+				</div>
+				<p class="hint">
+					*Стандарт - это список <span id="underline">обязательных</span> требований предьявляемых к его <br>специализаци при приеме на работу.<br> Соискатель будет видеть этот список при просмотре вакансии и отправляя <br>резюме автоматически подтверждать его. <br>
+				</p>
+				<h1 class="quest_title">Формы для заполнения соискателем</h1>
+				<div class="list">
+					<div class="list_rect"><h5>Обязательные данные</h5></div>
+					<div class="backG">	
+						<div class="up">
+							<div class="list_column" style="margin-left: 72px;">
+								<h3>ФИО</h3>
+
+								<h4>Фамилия</h4>
+								<input type="text" placeholder="Соискатель заполнит сам" class="list_input"><img src="Vector.png" width="11px"><hr noshade>
+								<h4>Имя</h4>
+								<input type="text" placeholder="Соискатель заполнит сам" class="list_input"><img src="Vector.png" width="11px"><hr noshade>
+								<h4>Отчество</h4>
+								<input type="text" placeholder="Соискатель заполнит сам" class="list_input"><img src="Vector.png" width="11px"><hr noshade>						
+							</div>
+							<div class="list_column" style="margin-right: 193px;">
+								<h3>Контакты</h3>
+
+								<h4>Город</h4>
+								<input type="text" placeholder="Соискатель заполнит сам" class="list_input"><img src="Vector.png" width="11px"><hr noshade>
+								<h4>Имя</h4>
+								<input type="text" placeholder="Соискатель заполнит сам" class="list_input"><img src="Vector.png" width="11px"><hr noshade>
+								<h4>Отчество</h4>
+								<input type="text" placeholder="Соискатель заполнит сам" class="list_input"><img src="Vector.png" width="11px"><hr noshade>	
+							</div>
+						</div>
+						<div class="down">
+							<div class="list_column" style="margin-left: 72px;">
+								<h3>Пол</h3>
+
+								<h4>Пол</h4>
+								<input type="text" placeholder="Соискатель заполнит сам" class="list_input"><img src="Vector.png" width="11px"><hr noshade>
+							</div>
+							<div class="list_column" style="margin-right: 193px;">
+								<h3>Возраст</h3>
+
+								<h4>Возраст</h4>
+								<input type="text" placeholder="Соискатель заполнит сам" class="list_input"><img src="Vector.png" width="11px"><hr noshade>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="criteria_rect"><h5>Стаж</h5></div>
+				<div class="new_criteria">
+
+					<div class="questions">
+					<h3>Выберите форму</h3>
+					<div class="strelka">
+						<select  name="stvorka" class="stvorka">
+						<option value="default">Cтаж</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						</select>
+					</div>
+
+				    <h4>Укажите минимальный стаж кандидата (в годах)</h4>
+					<input type="text" placeholder="18-99" class="criteria_input">
+					<hr noshade>
+				    <h4>Укажите желаемый стаж кандидата (число лет)</h4>
+					<input type="text" placeholder="18-99" class="criteria_input">
+					<hr noshade style="margin-bottom: 27px;">
+					</div>
+					<div class="rating">
+						<h5>Важность критерия </h5>
+
+						<label for="radio1" style="background-color: #BFE0FF;">
+						<input type="radio" name="radio1" id="radio1" value="1"></label>
+
+						<label for="radio2" style="background-color: #6BB6FC;">
+						<input type="radio" name="radio2" id="radio2" value="2"></label>
+
+						<label for="radio3" style="background-color: #0085FF;">
+						<input type="radio" name="radio3" id="radio3" value="3"></label>
+					</div>
+				</div>
+
+				<div class="criteria_rect" style="width: 211px;"><h5 s>Образование</h5></div>
+				<div class="new_criteria">
+
+					<div class="questions">
+					<h3>Выберите форму</h3>
+					<div class="strelka">
+						<select id="obrz" name="stvorka" class="stvorka">
+						<option value="default">Образвание</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						</select>
+					</div>
+
+				    <h4>ВУЗ</h4>
+					<input type="text" placeholder="18-99" class="criteria_input">
+					<hr noshade>
+				    <h4>Факультет</h4>
+					<input type="text" placeholder="18-99" class="criteria_input">
+					<hr noshade>
+					<h4>Год окончаия</h4>
+					<input type="text" placeholder="18-99" class="criteria_input">
+					<hr noshade style="margin-bottom: 27px;">
+					</div>
+					<div class="rating">
+						<h5>Важность критерия </h5>
+
+						<label for="radio1" style="background-color: #BFE0FF;">
+						<input type="radio" id="radio1"></label>
+
+						<label for="radio2" style="background-color: #6BB6FC;">
+						<input type="radio" id="radio2"></label>
+
+						<label for="radio3" style="background-color: #0085FF;">
+						<input type="radio" id="radio3"></label>
+					</div>
+				</div>
+
+				<div class="criteria_rect" style="background-color: #0500FF;width: 212px;"><h5>Новая форма</h5></div>
+				<div class="new_criteria" style="border-left: none;">
+					<div style="border-radius: 300px;background-color: #54B0FF;position: absolute;width: 40px;height: 40px;text-align: center;color: white; font-size: 40px;padding: 0;margin-top: -20px;margin-left: -20px;font-family: 'thin';"><span style="position:absolute;margin-left: -11px;margin-top: -4px;">+</span></div>
+					<div class="questions">
+						<h3>Выберите форму</h3>
+						<div class="strelka">
+							<select  name="stvorka" class="stvorka">
+								<option value="0"></option>
+								<option value="1">первый тип</option>
+								<option value="2">второй тип</option>
+								<option value="3">третий тип</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<input type="submit" id="submit" value="Создать вакансию" >
+			</form>
+		</div>
+	</section>
+</body>
+</html>
+
